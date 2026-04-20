@@ -3,330 +3,313 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>COME ALONE WITH ME RETAKE – BeatMods JA</title>
+  <title>COME ALONE WITH ME RETAKE | Beatmods JA</title>
+
+  <!-- Si ya tienes tu propio CSS (style.css, main.css, etc.), deja aquí el link -->
+  " />
+
   <style>
-    /* ---------- RESET SIMPLE ---------- */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    /* Estilos mínimos por si el CSS externo no carga.
+       Si ya tienes estilos en style.css, estos solo complementan. */
 
     body {
+      margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #050509;
-      color: #f5f5f5;
-      line-height: 1.5;
+      background: radial-gradient(circle at top, #261447 0, #050016 55%, #020009 100%);
+      color: #f9f4ff;
       min-height: 100vh;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img, video {
-      max-width: 100%;
-      display: block;
-    }
-
-    /* ---------- HEADER ---------- */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(5, 5, 15, 0.95);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-      backdrop-filter: blur(10px);
-    }
-
-    .nav-inner {
-      max-width: 1100px;
+    .page-wrapper {
+      max-width: 960px;
       margin: 0 auto;
-      padding: 0.75rem 1rem;
+      padding: 24px 16px 64px;
+    }
+
+    header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-weight: 800;
-      letter-spacing: 0.08em;
+      gap: 8px;
+      margin-bottom: 24px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      font-size: 0.85rem;
       text-transform: uppercase;
-      font-size: 0.9rem;
-      color: #ffffff;
+      color: #f9f4ff;
     }
 
-    .logo span {
-      color: #ff4bdd;
+    header span.highlight {
+      color: #ff4bcb;
     }
 
-    /* ---------- CONTENIDO PRINCIPAL ---------- */
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 1.5rem 1rem 3rem;
+    .card {
       position: relative;
-      z-index: 10; /* por encima del fondo, por debajo de la capa de pétalos */
-    }
-
-    h1, h2, h3 {
-      font-weight: 800;
-      letter-spacing: 0.03em;
-    }
-
-    h1 {
-      font-size: 1.6rem;
-      margin-bottom: 0.75rem;
-      text-align: center;
-      text-shadow: 0 0 18px rgba(164, 92, 255, 0.8);
-    }
-
-    p {
-      font-size: 0.92rem;
-      color: #dadada;
-    }
-
-    /* Tarjeta centrada */
-    .mod-wrapper-center {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: calc(100vh - 140px);
-    }
-
-    .mod-card {
-      max-width: 480px;
-      width: 100%;
-      background: radial-gradient(circle at top left, rgba(164, 92, 255, 0.38), #0b0715 40%);
-      border-radius: 18px;
-      padding: 1rem;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      padding: 24px 20px 32px;
+      background: radial-gradient(circle at top left, #4c1b8f 0, #1b0b33 35%, #070015 100%);
       box-shadow:
-        0 20px 35px rgba(0, 0, 0, 0.7),
-        0 0 16px rgba(135, 51, 255, 0.6);
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      position: relative;
-      z-index: 30; /* por encima de los pétalos */
+        0 0 40px rgba(255, 75, 203, 0.35),
+        0 0 80px rgba(0, 224, 255, 0.25);
       overflow: hidden;
     }
 
-    .mod-tag {
-      display: inline-block;
-      font-size: 0.7rem;
-      padding: 0.15rem 0.55rem;
+    .card h1 {
+      font-size: 1.6rem;
+      margin: 0 0 12px;
+    }
+
+    .subtitle-bar {
+      width: 100%;
+      height: 8px;
       border-radius: 999px;
-      background: rgba(9, 255, 222, 0.18);
-      color: #b9fff7;
-      margin-bottom: 0.35rem;
+      margin-bottom: 18px;
+      background: linear-gradient(90deg, #00f2ff, #ff4bcb);
+      opacity: 0.9;
     }
 
-    .mod-title {
-      font-size: 1.1rem;
-      margin-bottom: 0.1rem;
+    .card p.description {
+      margin: 0 0 20px;
+      line-height: 1.5;
+      font-size: 0.95rem;
+      color: #eaddff;
     }
 
-    .mod-image-wrapper {
-      border-radius: 14px;
+    .video-wrapper {
+      border-radius: 18px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.75);
+      margin-bottom: 24px;
+      background: #03000a;
+      box-shadow: 0 0 28px rgba(0, 0, 0, 0.6);
     }
 
-    .mod-video {
+    .video-wrapper video {
+      display: block;
       width: 100%;
       height: auto;
-      display: block;
       background: #000;
     }
 
-    .mod-desc {
-      font-size: 0.88rem;
-      color: #ebebeb;
-    }
-
-    .mod-buttons {
+    .buttons {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.4rem;
+      gap: 12px;
+      margin-bottom: 18px;
     }
 
     .btn {
-      flex: 1 1 130px;
-      padding: 0.55rem 0.75rem;
+      flex: 1 1 180px;
       border-radius: 999px;
+      padding: 12px 18px;
       border: none;
-      font-size: 0.85rem;
+      outline: none;
+      cursor: pointer;
       font-weight: 600;
-      letter-spacing: 0.02em;
+      font-size: 0.9rem;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.35rem;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
-      text-align: center;
-      text-transform: uppercase;
       text-decoration: none;
+      color: #0a0014;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
     }
 
-    .btn-download {
-      background: linear-gradient(135deg, #4ade80, #22c55e);
-      color: #02130a;
-      box-shadow: 0 0 18px rgba(34, 197, 94, 0.5);
+    .btn-primary {
+      background: radial-gradient(circle at top left, #7bffb0, #00f29b, #00b36e);
     }
 
-    .btn-download:hover {
-      background: linear-gradient(135deg, #22c55e, #16a34a);
-      transform: translateY(-1px);
-      box-shadow: 0 0 26px rgba(34, 197, 94, 0.7);
-    }
-
-    .btn-view {
-      background: linear-gradient(135deg, #f973d1, #a855f7);
-      color: #190018;
-      box-shadow: 0 0 18px rgba(236, 72, 153, 0.5);
-    }
-
-    .btn-view:hover {
-      background: linear-gradient(135deg, #ec4899, #7c3aed);
-      transform: translateY(-1px);
-      box-shadow: 0 0 26px rgba(236, 72, 153, 0.7);
+    .btn-secondary {
+      background: radial-gradient(circle at top left, #ffe082, #ff5ec4, #ff3f7f);
+      color: #200018;
     }
 
     .btn-back {
-      margin-top: 1rem;
-      justify-content: center;
+      width: 100%;
+      margin-top: 4px;
+      background: linear-gradient(90deg, #ff9ff3, #9b5cff);
+      color: #1a0024;
     }
 
-    .btn span.icon {
-      font-size: 1rem;
+    .btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.6);
     }
 
-    /* ---------- PÉTALOS EN TODA LA PÁGINA ---------- */
-    .petal-layer {
+    .btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.55);
+      filter: brightness(0.96);
+    }
+
+    /* Canvas de los pétalos: capa por encima del contenido pero sin bloquear clics */
+    #petals-canvas {
       position: fixed;
       inset: 0;
+      width: 100%;
+      height: 100%;
       pointer-events: none;
-      overflow: hidden;
-      z-index: 15; /* debajo de la tarjeta, por encima del fondo */
+      z-index: 999;
     }
 
-    .petal {
-      position: absolute;
-      width: 10px;
-      height: 16px;
-      background: radial-gradient(circle at 30% 0%, #ffd1f0 0, #f472b6 40%, #651b47 100%);
-      border-radius: 999px;
-      opacity: 0.75;
-      pointer-events: none;
-      animation: fall 9s linear infinite;
-      filter: blur(0.2px);
-    }
+    @media (min-width: 768px) {
+      .card {
+        padding: 30px 26px 40px;
+      }
 
-    @keyframes fall {
-      0% {
-        transform: translate3d(0, -120%, 0) rotateZ(0deg);
-        opacity: 0;
-      }
-      10% {
-        opacity: 0.9;
-      }
-      100% {
-        transform: translate3d(0, 140%, 0) rotateZ(120deg);
-        opacity: 0;
+      .card h1 {
+        font-size: 2rem;
       }
     }
   </style>
 </head>
+
 <body>
-  <!-- Capa de pétalos en toda la pantalla -->
-  <div class="petal-layer" id="petal-layer"></div>
+  <!-- Canvas global para la animación de pétalos -->
+  anvas id="petals-canvas"></canvas>
 
-  <header>
-    <div class="nav-inner">
-      <div class="logo">
-        BeatMods <span>JA</span>
-      </div>
-    </div>
-  </header>
+  <div class="page-wrapper">
+    <header>
+      <span>BEATMODS</span>
+      <span class="highlight">JA</span>
+    </header>
 
-  <main>
-    <h1>COME ALONE WITH ME RETAKE</h1>
+    <main>
+      <section class="card">
+        <h1>COME ALONE WITH ME RETAKE</h1>
 
-    <!-- Tarjeta centrada -->
-    <div class="mod-wrapper-center">
-      <article class="mod-card">
-        <span class="mod-tag">Nuevo mod</span>
-        <h3 class="mod-title">COME ALONE WITH ME RETAKE</h3>
-        <p class="mod-desc">
-          COME ALONE WITH ME RETAKE es un mod inspirado en la escena final de
-          Adventure Time, con una ambientación tranquila pero emocional donde la
-          música y las visuales se centran en despedidas, recuerdos y finales
+        <div class="subtitle-bar"></div>
+
+        <p class="description">
+          COME ALONE WITH ME RETAKE es un mod inspirado en la escena final de Adventure Time, con una ambientación
+          tranquila pero emocional donde la música y las visuales se centran en despedidas, recuerdos y finales
           felices con un toque melancólico.
         </p>
 
-        <div class="mod-image-wrapper" aria-label="COME ALONE WITH ME RETAKE">
-          <video
-            id="come-alone-video"
-            src="come-alone-with-me-retake.mp4"
-            controls
-            playsinline
-            class="mod-video"
-          ></video>
+        <div class="video-wrapper">
+          <!-- Ajusta el src al nombre/ruta real de tu video si es diferente -->
+          <video controls preload="metadata">
+            <source src="come-alone-with-me-retake.mp4" type="video/mp4" />
+            Tu navegador no soporta video HTML5.
+          </video>
         </div>
 
-        <div class="mod-buttons">
-          <a
-            class="btn btn-download"
-            href="https://mega.nz/file/ci5XDJwK#TWT1HQNqzPUhR4ZsPeh_NoAi4-cAFtUwavF_Q7bPD30"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="icon">⬇️</span>
-            <span>Descargar COME ALONE WITH ME RETAKE</span>
+        <div class="buttons">
+          <!-- Ajusta estos href a tus enlaces reales -->
+          <a class="btn btn-primary" href="COME_ALONE_WITH_ME_RETAKE.zip" download>
+            DESCARGAR COME ALONE WITH ME RETAKE
           </a>
 
-          <a
-            class="btn btn-view"
-            href="https://vt.tiktok.com/ZSHwFPoCw/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="icon">▶️</span>
-            <span>Ver mod</span>
+          <a class="btn btn-secondary" href="https://beatsaver.com/" target="_blank" rel="noopener noreferrer">
+            VER MOD
           </a>
         </div>
 
-        <a href="index.html#mods" class="btn btn-view btn-back">
-          <span class="icon">⬅️</span>
-          <span>Volver a la lista de mods</span>
+        <a class="btn btn-back" href="index.html">
+          VOLVER A LA LISTA DE MODS
         </a>
-      </article>
-    </div>
-  </main>
+      </section>
+    </main>
+  </div>
 
-<script>
-  // TEST: comprobar si el JS se está ejecutando
-  const layer = document.getElementById("petal-layer");
+  <script>
+    // Animación de pétalos en canvas
+    (function () {
+      const canvas = document.getElementById('petals-canvas');
+      const ctx = canvas.getContext('2d');
 
-  // Borra lo que pueda haber dentro por si acaso
-  layer.innerHTML = "";
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      let petals = [];
+      const PETAL_COUNT = 80; // puedes subir o bajar este número
 
-  // Crea un cuadrado rojo grande
-  const box = document.createElement("div");
-  box.style.position = "absolute";
-  box.style.width = "120px";
-  box.style.height = "120px";
-  box.style.background = "red";
-  box.style.top = "40px";
-  box.style.left = "40px";
-  box.style.opacity = "0.8";
+      function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width * window.devicePixelRatio;
+        canvas.height = height * window.devicePixelRatio;
+        ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+      }
 
-  layer.appendChild(box);
-</script>
+      window.addEventListener('resize', resize);
+      resize();
+
+      function createPetal() {
+        return {
+          x: Math.random() * width,
+          y: Math.random() * height,
+          size: 6 + Math.random() * 10,
+          speedY: 0.5 + Math.random() * 1.2,
+          swingAmplitude: 20 + Math.random() * 35,
+          swingSpeed: 0.4 + Math.random() * 0.8,
+          rotation: Math.random() * Math.PI * 2,
+          rotationSpeed: (Math.random() - 0.5) * 0.02,
+          baseX: 0,
+          offsetT: Math.random() * Math.PI * 2
+        };
+      }
+
+      function initPetals() {
+        petals = [];
+        for (let i = 0; i < PETAL_COUNT; i++) {
+          const p = createPetal();
+          p.baseX = p.x;
+          petals.push(p);
+        }
+      }
+
+      function drawPetal(p) {
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rotation);
+
+        const w = p.size * 1.2;
+        const h = p.size * 0.6;
+
+        const gradient = ctx.createLinearGradient(-w / 2, -h / 2, w / 2, h / 2);
+        gradient.addColorStop(0, 'rgba(255, 200, 230, 0.0)');
+        gradient.addColorStop(0.3, 'rgba(255, 170, 220, 0.8)');
+        gradient.addColorStop(1, 'rgba(255, 120, 200, 0.0)');
+
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.ellipse(0, 0, w, h, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.restore();
+      }
+
+      function update() {
+        ctx.clearRect(0, 0, width, height);
+
+        const time = performance.now() / 1000;
+
+        for (const p of petals) {
+          // Movimiento en Y (caída)
+          p.y += p.speedY;
+
+          // Movimiento en X (oscilación)
+          const sine = Math.sin(time * p.swingSpeed + p.offsetT);
+          p.x = p.baseX + sine * p.swingAmplitude;
+
+          // Rotación
+          p.rotation += p.rotationSpeed;
+
+          // Si se va por abajo, lo reseteamos arriba
+          if (p.y - p.size > height) {
+            p.y = -p.size - Math.random() * 40;
+            p.baseX = Math.random() * width;
+          }
+
+          drawPetal(p);
+        }
+
+        requestAnimationFrame(update);
+      }
+
+      initPetals();
+      requestAnimationFrame(update);
+    })();
+  </script>
 </body>
 </html>
