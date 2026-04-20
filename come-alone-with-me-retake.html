@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COME ALONE WITH ME RETAKE – BeatMods JA</title>
+  <style>
+    /* ---------- RESET SIMPLE ---------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #050509;
+      color: #f5f5f5;
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img, video {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(5, 5, 15, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      color: #ffffff;
+    }
+
+    .logo span {
+      color: #ff4bdd;
+    }
+
+    /* ---------- CONTENIDO PRINCIPAL ---------- */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+      position: relative;
+      z-index: 10; /* por encima del fondo, por debajo de la capa de pétalos */
+    }
+
+    h1, h2, h3 {
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+      text-align: center;
+      text-shadow: 0 0 18px rgba(164, 92, 255, 0.8);
+    }
+
+    p {
+      font-size: 0.92rem;
+      color: #dadada;
+    }
+
+    /* Tarjeta centrada */
+    .mod-wrapper-center {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: calc(100vh - 140px);
+    }
+
+    .mod-card {
+      max-width: 480px;
+      width: 100%;
+      background: radial-gradient(circle at top left, rgba(164, 92, 255, 0.38), #0b0715 40%);
+      border-radius: 18px;
+      padding: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow:
+        0 20px 35px rgba(0, 0, 0, 0.7),
+        0 0 16px rgba(135, 51, 255, 0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      position: relative;
+      z-index: 30; /* por encima de los pétalos */
+      overflow: hidden;
+    }
+
+    .mod-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(9, 255, 222, 0.18);
+      color: #b9fff7;
+      margin-bottom: 0.35rem;
+    }
+
+    .mod-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .mod-image-wrapper {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.75);
+    }
+
+    .mod-video {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #000;
+    }
+
+    .mod-desc {
+      font-size: 0.88rem;
+      color: #ebebeb;
+    }
+
+    .mod-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.4rem;
+    }
+
+    .btn {
+      flex: 1 1 130px;
+      padding: 0.55rem 0.75rem;
+      border-radius: 999px;
+      border: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .btn-download {
+      background: linear-gradient(135deg, #4ade80, #22c55e);
+      color: #02130a;
+      box-shadow: 0 0 18px rgba(34, 197, 94, 0.5);
+    }
+
+    .btn-download:hover {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      transform: translateY(-1px);
+      box-shadow: 0 0 26px rgba(34, 197, 94, 0.7);
+    }
+
+    .btn-view {
+      background: linear-gradient(135deg, #f973d1, #a855f7);
+      color: #190018;
+      box-shadow: 0 0 18px rgba(236, 72, 153, 0.5);
+    }
+
+    .btn-view:hover {
+      background: linear-gradient(135deg, #ec4899, #7c3aed);
+      transform: translateY(-1px);
+      box-shadow: 0 0 26px rgba(236, 72, 153, 0.7);
+    }
+
+    .btn-back {
+      margin-top: 1rem;
+      justify-content: center;
+    }
+
+    .btn span.icon {
+      font-size: 1rem;
+    }
+
+    /* ---------- PÉTALOS EN TODA LA PÁGINA ---------- */
+    .petal-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 15; /* debajo de la tarjeta, por encima del fondo */
+    }
+
+    .petal {
+      position: absolute;
+      width: 10px;
+      height: 16px;
+      background: radial-gradient(circle at 30% 0%, #ffd1f0 0, #f472b6 40%, #651b47 100%);
+      border-radius: 999px;
+      opacity: 0.75;
+      pointer-events: none;
+      animation: fall 9s linear infinite;
+      filter: blur(0.2px);
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translate3d(0, -120%, 0) rotateZ(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.9;
+      }
+      100% {
+        transform: translate3d(0, 140%, 0) rotateZ(120deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Capa de pétalos en toda la pantalla -->
+  <div class="petal-layer" id="petal-layer"></div>
+
+  <header>
+    <div class="nav-inner">
+      <div class="logo">
+        BeatMods <span>JA</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1>COME ALONE WITH ME RETAKE</h1>
+
+    <!-- Tarjeta centrada -->
+    <div class="mod-wrapper-center">
+      <article class="mod-card">
+        <span class="mod-tag">Nuevo mod</span>
+        <h3 class="mod-title">COME ALONE WITH ME RETAKE</h3>
+        <p class="mod-desc">
+          COME ALONE WITH ME RETAKE es un mod inspirado en la escena final de
+          Adventure Time, con una ambientación tranquila pero emocional donde la
+          música y las visuales se centran en despedidas, recuerdos y finales
+          felices con un toque melancólico.
+        </p>
+
+        <div class="mod-image-wrapper" aria-label="COME ALONE WITH ME RETAKE">
+          <video
+            id="come-alone-video"
+            src="come-alone-with-me-retake.mp4"
+            controls
+            playsinline
+            class="mod-video"
+          ></video>
+        </div>
+
+        <div class="mod-buttons">
+          <a
+            class="btn btn-download"
+            href="https://mega.nz/file/ci5XDJwK#TWT1HQNqzPUhR4ZsPeh_NoAi4-cAFtUwavF_Q7bPD30"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="icon">⬇️</span>
+            <span>Descargar COME ALONE WITH ME RETAKE</span>
+          </a>
+
+          <a
+            class="btn btn-view"
+            href="https://vt.tiktok.com/ZSHwFPoCw/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="icon">▶️</span>
+            <span>Ver mod</span>
+          </a>
+        </div>
+
+        <a href="index.html#mods" class="btn btn-view btn-back">
+          <span class="icon">⬅️</span>
+          <span>Volver a la lista de mods</span>
+        </a>
+      </article>
+    </div>
+  </main>
+
+<script>
+  // TEST: comprobar si el JS se está ejecutando
+  const layer = document.getElementById("petal-layer");
+
+  // Borra lo que pueda haber dentro por si acaso
+  layer.innerHTML = "";
+
+  // Crea un cuadrado rojo grande
+  const box = document.createElement("div");
+  box.style.position = "absolute";
+  box.style.width = "120px";
+  box.style.height = "120px";
+  box.style.background = "red";
+  box.style.top = "40px";
+  box.style.left = "40px";
+  box.style.opacity = "0.8";
+
+  layer.appendChild(box);
+</script>
+</body>
+</html>

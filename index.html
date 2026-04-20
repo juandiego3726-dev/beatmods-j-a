@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeatMods JA – Friday Night Funkin'</title>
+  <style>
+    /* ---------- RESET SIMPLE ---------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #050509;
+      color: #f5f5f5;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ---------- LAYOUT GENERAL ---------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(5, 5, 15, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      color: #ffffff;
+    }
+
+    .logo span {
+      color: #ff4bdd;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    nav a {
+      padding: 0.35rem 0.5rem;
+      border-radius: 999px;
+      color: #e0d7ff;
+      transition: background 0.2s, color 0.2s, transform 0.1s;
+    }
+
+    nav a:hover {
+      background: rgba(104, 85, 255, 0.2);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    h1, h2, h3 {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+      text-shadow: 0 0 18px rgba(164, 92, 255, 0.8);
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+      border-left: 4px solid #a45cff;
+      padding-left: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+
+    p {
+      font-size: 0.92rem;
+      color: #dadada;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: #bfb4ff;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      max-width: 40rem;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      margin-top: 1.25rem;
+      margin-bottom: 2.25rem;
+      padding: 1.5rem 1.25rem;
+      border-radius: 18px;
+      background: radial-gradient(circle at top, #382a7a 0, #050509 55%);
+      border: 1px solid rgba(164, 92, 255, 0.6);
+      box-shadow:
+        0 0 40px rgba(140, 32, 255, 0.45),
+        inset 0 0 18px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(5, 5, 18, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 0.75rem;
+      color: #f5edff;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-tag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #ff4bdd 0, #ff00aa 60%, transparent 100%);
+    }
+
+    .hero-title {
+      font-size: 1.7rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title span {
+      color: #ff4bdd;
+    }
+
+    .hero-text {
+      max-width: 40rem;
+      font-size: 0.95rem;
+    }
+
+    /* ---------- CARDS DE MODS ---------- */
+    .mods-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .mods-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .mod-card {
+      background: radial-gradient(circle at top left, rgba(164, 92, 255, 0.38), #0b0715 40%);
+      border-radius: 18px;
+      padding: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow:
+        0 20px 35px rgba(0, 0, 0, 0.7),
+        0 0 16px rgba(135, 51, 255, 0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .mod-title {
+      font-size: 1.05rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .mod-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(9, 255, 222, 0.18);
+      color: #b9fff7;
+      margin-bottom: 0.35rem;
+    }
+
+    .mod-image-wrapper {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.75);
+    }
+    
+      /* Todas las imágenes de mods se ven completas */
+      .mod-image-wrapper img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+     /* Solo Blessed By Sword se recorta tipo póster */
+     .mod-image-wrapper img[src="blessed-by-sword.png"] {
+     height: 180px;
+     object-fit: cover;
+    }
+
+    .mod-desc {
+      font-size: 0.88rem;
+      color: #ebebeb;
+    }
+
+    .mod-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.4rem;
+    }
+
+    .btn {
+      flex: 1 1 130px;
+      padding: 0.55rem 0.75rem;
+      border-radius: 999px;
+      border: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .btn-download {
+      background: linear-gradient(135deg, #4ade80, #22c55e);
+      color: #02130a;
+      box-shadow: 0 0 18px rgba(34, 197, 94, 0.5);
+    }
+
+    .btn-download:hover {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      transform: translateY(-1px);
+      box-shadow: 0 0 26px rgba(34, 197, 94, 0.7);
+    }
+
+    .btn-view {
+      background: linear-gradient(135deg, #f973d1, #a855f7);
+      color: #190018;
+      box-shadow: 0 0 18px rgba(236, 72, 153, 0.5);
+    }
+
+    .btn-view:hover {
+      background: linear-gradient(135deg, #ec4899, #7c3aed);
+      transform: translateY(-1px);
+      box-shadow: 0 0 26px rgba(236, 72, 153, 0.7);
+    }
+
+    .btn span.icon {
+      font-size: 1rem;
+    }
+
+    /* ---------- INDICACIONES ---------- */
+    .steps {
+      list-style: none;
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 0.4rem;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      background: radial-gradient(circle at left, rgba(164, 92, 255, 0.3), rgba(15, 15, 35, 0.9));
+      padding: 0.55rem 0.6rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .step-number {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: #a855f7;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-top: 0.1rem;
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.8);
+    }
+
+    .step-text {
+      flex: 1;
+    }
+
+    code {
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      background: rgba(15, 23, 42, 0.9);
+      padding: 0.08rem 0.25rem;
+      border-radius: 4px;
+      font-size: 0.82rem;
+    }
+
+    /* ---------- AYUDA ---------- */
+    .support-box {
+      background: radial-gradient(circle at top, rgba(34, 197, 235, 0.26), rgba(15, 23, 42, 0.95));
+      border-radius: 16px;
+      padding: 1rem 1rem;
+      border: 1px solid rgba(125, 211, 252, 0.6);
+      box-shadow: 0 0 22px rgba(56, 189, 248, 0.7);
+      font-size: 0.9rem;
+    }
+
+    .support-phone {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #bbf7d0;
+      margin: 0.4rem 0;
+    }
+
+    .support-note {
+      font-size: 0.85rem;
+      color: #e0f2fe;
+    }
+
+    /* ---------- OPINIONES ---------- */
+    .opinions-layout {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 900px) {
+      .opinions-layout {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
+      }
+    }
+
+    .opinions-form {
+      background: radial-gradient(circle at top left, rgba(236, 72, 153, 0.25), rgba(15, 23, 42, 0.95));
+      border-radius: 16px;
+      padding: 1rem;
+      border: 1px solid rgba(244, 114, 182, 0.7);
+      box-shadow: 0 0 20px rgba(236, 72, 153, 0.6);
+    }
+
+    .opinions-form label {
+      display: block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #fed7ff;
+      margin-bottom: 0.15rem;
+    }
+
+    .opinions-form input,
+    .opinions-form select,
+    .opinions-form textarea {
+      width: 100%;
+      padding: 0.45rem 0.5rem;
+      border-radius: 10px;
+      border: 1px solid rgba(248, 250, 252, 0.25);
+      background: rgba(15, 23, 42, 0.95);
+      color: #f9fafb;
+      font-size: 0.88rem;
+      margin-bottom: 0.6rem;
+      outline: none;
+      transition: border 0.15s, box-shadow 0.15s;
+    }
+
+    .opinions-form input:focus,
+    .opinions-form select:focus,
+    .opinions-form textarea:focus {
+      border-color: #fb7185;
+      box-shadow: 0 0 0 1px rgba(248, 113, 113, 0.8);
+    }
+
+    .opinions-form textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .btn-opinion {
+      background: linear-gradient(135deg, #fb7185, #f97316);
+      color: #0f172a;
+      width: 100%;
+      border-radius: 999px;
+      padding: 0.6rem 0.75rem;
+      border: none;
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(248, 113, 113, 0.7);
+      transition: transform 0.1s, box-shadow 0.2s, background 0.15s;
+    }
+
+    .btn-opinion:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 26px rgba(248, 113, 113, 0.9);
+      background: linear-gradient(135deg, #f97316, #fb7185);
+    }
+
+    .opinions-list {
+      display: grid;
+      gap: 0.7rem;
+      max-height: 420px;
+      overflow-y: auto;
+      padding-right: 0.4rem;
+    }
+
+    .opinion-card {
+      background: linear-gradient(
+        135deg,
+        rgba(55, 48, 163, 0.9),
+        rgba(15, 23, 42, 0.95)
+      );
+      border-radius: 12px;
+      padding: 0.65rem 0.7rem;
+      border: 1px solid rgba(129, 140, 248, 0.8);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.9);
+      font-size: 0.86rem;
+    }
+
+    .opinion-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.3rem;
+      gap: 0.4rem;
+    }
+
+    .opinion-name {
+      font-weight: 700;
+      color: #e0e7ff;
+    }
+
+    .opinion-mod {
+      font-size: 0.72rem;
+      padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+      background: rgba(251, 191, 36, 0.25);
+      color: #fef9c3;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .opinion-date {
+      font-size: 0.7rem;
+      color: #c7d2fe;
+    }
+
+    .opinion-text {
+      color: #e5e7eb;
+      font-size: 0.85rem;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 1rem 1rem 1.5rem;
+      background: radial-gradient(circle at top, #1f2937, #020617);
+      color: #e5e7eb;
+      font-size: 0.8rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .footer-highlight {
+      color: #f9a8d4;
+      font-weight: 600;
+    }
+
+    @media (min-width: 640px) {
+      .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <div class="logo">
+        BeatMods <span>JA</span>
+      </div>
+      <nav aria-label="Navegación principal">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#mods">Mods</a></li>
+          <li><a href="#indicaciones">Indicaciones</a></li>
+          <li><a href="#opiniones">Opiniones</a></li>
+          <li><a href="#ayuda">Ayuda</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / INICIO -->
+    <section id="inicio" class="hero">
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        <span>Sitio oficial de mods by Juan.A</span>
+      </div>
+      <h1 class="hero-title">
+        BeatMods <span>JA</span> – Mods de Friday Night Funkin'
+      </h1>
+      <p class="hero-text">
+        Hola a todos, mi nombre es Juan.A y desarrollé esta página donde pueden encontrar
+        mods, recreaciones y músicas para Friday Night Funkin'. Todos estos proyectos los hice
+        con mucho cariño para la comunidad, así que espero que los disfruten a full.
+      </p>
+    </section>
+
+    <!-- MODS DISPONIBLES -->
+    <section id="mods">
+      <h2>Mods disponibles</h2>
+      <p class="subtitle">
+        Descarga tus mods desde MediaFire, mira un preview en TikTok y sigue las
+        indicaciones más abajo para instalarlos en Psych Engine 7.3 para Android.
+      </p>
+
+      <div class="mods-grid">
+        <!-- MOD 1 -->
+        <article class="mod-card">
+          <span class="mod-tag">Nuevo mod</span>
+          <h3 class="mod-title">My Finale</h3>
+          <p class="mod-desc">
+            El final de Darwin,Gumball después de haber sido corrompido por el glitch
+            arrastra a Darwin a su final,en dónde por más que Darwin intenta ayudarlo
+            solo aceleró su fin hasta corromperse por completo.
+            Absolute Cinema🗿
+          </p>
+
+          <div class="mod-image-wrapper" aria-label="Preview del mod My Finale">
+            <!-- Imagen local: debe existir en la misma carpeta que este HTML -->
+            <img src="1000829148.jpg" alt="Imagen del mod My Finale" />
+          </div>
+
+          <div class="mod-buttons">
+            <a
+              class="btn btn-download"
+              href="https://www.mediafire.com/file/mk0afh2bvlfiyzw/My-Finale+Por+J.A.zip/file"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">⬇️</span>
+              <span>Descargar My Finale</span>
+            </a>
+
+            <a
+              class="btn btn-view"
+              href="https://vt.tiktok.com/ZSupaCdoR/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">▶️</span>
+              <span>Ver mod</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- MOD 2 -->
+        <article class="mod-card">
+          <span class="mod-tag">Pibby</span>
+          <h3 class="mod-title">Pibby Apocalypse - Por J.A</h3>
+          <p class="mod-desc">
+            Guao...después de meses de trabajo finalmente lo complete...Espero que te guste mi mod lo hize con mucho cariño esfuerzo y dedicación,disfrútalo bro😄
+          </p>
+
+          <div class="mod-image-wrapper" aria-label="Preview del mod Come Alone With Me – Pibby Apocalypse">
+            <!-- Imagen local: debe existir en la misma carpeta que este HTML -->
+            <img src="1000830043.jpeg" alt="Imagen del mod Come Alone With Me – Pibby Apocalypse" />
+          </div>
+
+          <div class="mod-buttons">
+            <a
+              class="btn btn-download"
+              href="https://mega.nz/file/J2gFxTKD#9ZbAJ47FY50TdCz728KwJG2pLOEU5ZBL-YK_GrGg0Cs"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">⬇️</span>
+              <span>Descargar Come Alone With Me – Pibby Apocalypse</span>
+            </a>
+
+            <a
+              class="btn btn-view"
+              href="https://vt.tiktok.com/ZSupamKMg/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">▶️</span>
+              <span>Ver mod</span>
+            </a>
+          </div>
+        </article>
+                <!-- MOD 3 -->
+        <article class="mod-card">
+          <span class="mod-tag">Nuevo track</span>
+          <h3 class="mod-title">Suffering Siblings</h3>
+          <p class="mod-desc">
+            “Suffering Siblings” es una canción que transmite una sensación de conflicto emocional
+            y desesperación entre personajes que alguna vez estuvieron unidos. A través de un ritmo
+            intenso y tonos glitch característicos de Friday Night Funkin', la música refleja la lucha
+            interna y externa contra una corrupción que los está destruyendo, combinando momentos
+            caóticos con otros más melancólicos para representar tanto el dolor como la resistencia.
+          </p>
+
+          <div class="mod-image-wrapper" aria-label="Preview del mod Suffering Siblings">
+            <!-- Imagen local: debe existir en la misma carpeta que este HTML -->
+            <img src="1000831112.jpeg" alt="Imagen del mod Suffering Siblings" />
+          </div>
+
+          <div class="mod-buttons">
+            <a
+              class="btn btn-download"
+              href="https://www.mediafire.com/file/j8ih6d8zch50ekh/Suffering+Siblings+Android+Port.zip/file"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">⬇️</span>
+              <span>Descargar Suffering Siblings</span>
+            </a>
+
+            <a
+              class="btn btn-view"
+              href="https://youtu.be/nWTOgRk8FVI"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">▶️</span>
+              <span>Ver mod</span>
+            </a>
+          </div>
+        </article>
+                <!-- MOD 4 -->
+        <article class="mod-card">
+          <span class="mod-tag">Gumball</span>
+          <h3 class="mod-title">Befallen Brothers / My Take</h3>
+          <p class="mod-desc">
+            Un extraño glitch devora el mundo de Gumball y Darwin y los deja rotos por dentro,
+            llenos de miedo y rabia, mientras su ciudad se vuelve fría, vacía y sin vida.
+          </p>
+
+          <div class="mod-image-wrapper" aria-label="Preview del mod Befallen Brothers / My Take">
+            <!-- Imagen local: debe existir en la misma carpeta que este HTML -->
+            <img src="1000832921.jpg" alt="Imagen del mod Befallen Brothers / My Take" />
+          </div>
+
+          <div class="mod-buttons">
+            <a
+              class="btn btn-download"
+              href="https://www.mediafire.com/file/41n6a09lrogembn/Befallen+Brothers+My+Take.zip/file"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">⬇️</span>
+              <span>Descargar Befallen Brothers / My Take</span>
+            </a>
+
+            <a
+              class="btn btn-view"
+              href="https://vt.tiktok.com/ZSuGd3V4x/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">▶️</span>
+              <span>Ver mod</span>
+            </a>
+          </div>
+        </article>
+        
+                <!-- MOD 5 -->
+        <article class="mod-card">
+          <span class="mod-tag">Nuevo mod</span>
+          <h3 class="mod-title">Blessed By Sword</h3>
+          <p class="mod-desc">
+            Blessed By Sword es un mod con estética roja intensa y una atmósfera pesada,
+            pensado para los que quieren algo más agresivo en lo visual y lo musical dentro
+            de Friday Night Funkin'.
+          </p>
+
+          <div class="mod-image-wrapper" aria-label="Blessed By Sword">
+            <img src="blessed-by-sword.png" alt="Blessed By Sword" />
+          </div>
+
+          <div class="mod-buttons">
+            <a
+              class="btn btn-download"
+              href="https://www.mediafire.com/file/8mj74lm9crtqc5e/Blessed-By-Swords-V2.zip/file"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">⬇️</span>
+              <span>Descargar Blessed By Sword</span>
+            </a>
+
+            <a
+              class="btn btn-view"
+              href="https://youtu.be/Q3d9j35hC9w"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">▶️</span>
+              <span>Ver mod</span>
+            </a>
+          </div>
+        </article>
+                <!-- MOD 6 -->
+        <article class="mod-card">
+          <span class="mod-tag">Nuevo mod</span>
+          <h3 class="mod-title">Drowning In Darkness – Psych Engine Port</h3>
+          <p class="mod-desc">
+            Drowning In Darkness – Psych Engine Port trae una atmósfera oscura y tensa,
+            con canciones intensas y visuales pesados pensados para jugadores que quieren
+            un reto más sombrío en Friday Night Funkin'.
+          </p>
+
+          <div class="mod-image-wrapper" aria-label="Drowning In Darkness – Psych Engine Port">
+            <img src="drowning-in-darkness.png" alt="Drowning In Darkness – Psych Engine Port" />
+          </div>
+
+          <div class="mod-buttons">
+            <a
+              class="btn btn-download"
+              href="https://www.mediafire.com/file/ch19zh6zh8mx8xz/Drowning+In+Darkness.zip/file"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">⬇️</span>
+              <span>Descargar Drowning In Darkness</span>
+            </a>
+
+            <a
+              class="btn btn-view"
+              href="https://youtu.be/ovduspol58k"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">▶️</span>
+              <span>Ver mod</span>
+            </a>
+          </div>
+        </article>
+                <!-- MOD 7 -->
+        <article class="mod-card">
+          <span class="mod-tag">Nuevo mod</span>
+          <h3 class="mod-title">Child's Play My Version</h3>
+          <p class="mod-desc">
+            Child's Play My Version es un mod con un estilo de dibujo dinámico y caótico,
+            donde los personajes se enfrentan en una batalla llena de energía y detalles
+            visuales tipo boceto.
+          </p>
+
+          <div class="mod-image-wrapper" aria-label="Child's Play My Version">
+            <img src="childs-play-my-version.jpeg" alt="Child's Play My Version" />
+          </div>
+
+          <div class="mod-buttons">
+            <a
+              class="btn btn-download"
+              href="https://mega.nz/file/Tswl2SIZ#6AnquGglDldKX3RAEecuLS6qJcWJmqnvw8CBEz0wUyU"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">⬇️</span>
+              <span>Descargar Child's Play My Version</span>
+            </a>
+
+            <a
+              class="btn btn-view"
+              href="https://vt.tiktok.com/ZSuvHoSh2/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">▶️</span>
+              <span>Ver mod</span>
+            </a>
+          </div>
+        </article>
+        <!-- MOD X -->
+        <article class="mod-card">
+          <span class="mod-tag">Nuevo mod</span>
+          <h3 class="mod-title">Too Slow Encore</h3>
+          <p class="mod-desc">
+            Too Slow Encore es un mod inspirado en la versión extendida de la famosa
+            canción de Sonic creepypasta, con una atmósfera intensa y visuales oscuros
+            pensados para los fans de los EXE.
+          </p>
+
+          <div class="mod-image-wrapper" aria-label="Too Slow Encore">
+            <img src="too-slow-encore.png" alt="Too Slow Encore" />
+          </div>
+
+          <div class="mod-buttons">
+            <a
+              class="btn btn-download"
+              href="https://mega.nz/file/Slp0UYRS#MHmmUH-8Dt7ROxJOIiRUOFSGI_2qQPn68OUG-TVV6CY"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">⬇️</span>
+              <span>Descargar Too Slow Encore</span>
+            </a>
+
+            <a
+              class="btn btn-view"
+              href="https://youtu.be/IFbXnS1odNs"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">▶️</span>
+              <span>Perdón no he subido gameplay pero igual aplasta el botón bro</span>
+            </a>
+          </div>
+        </article>
+                <!-- MOD NMI Real -->
+        <article class="mod-card">
+          <span class="mod-tag">Nuevo mod</span>
+          <h3 class="mod-title">NMI Real [サイコポート]</h3>
+          <p class="mod-desc">
+            NMI Real [サイコポート] está inspirado en la creepypasta No More Innocence,
+            un yokai que habita en un juego bootleg de Sonic y corrompe los recuerdos
+            de la infancia de los jugadores usando una versión maldita del erizo.
+          </p>
+
+          <div class="mod-image-wrapper" aria-label="NMI Real Psycho Port">
+            <img src="nmi-real-psycho-port.png" alt="NMI Real Psycho Port" />
+          </div>
+
+          <div class="mod-buttons">
+            <a
+              class="btn btn-download"
+              href="https://mega.nz/file/ZvQkWLoL#Ka3JvCTOdhlBfqRoQ4VnvzCyhvP-K3i5Y5rRN4pUiyM"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">⬇️</span>
+              <span>Descargar NMI Real [サイコポート]</span>
+            </a>
+
+            <a
+              class="btn btn-view"
+              href="https://youtu.be/v9-aB30e5ec"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">▶️</span>
+              <span>观看模组</span>
+            </a>
+          </div>
+        </article>
+                <!-- MOD Orbituary My Take -->
+        <article class="mod-card">
+          <span class="mod-tag">Nuevo mod</span>
+          <h3 class="mod-title">Orbituary My Take</h3>
+          <p class="mod-desc">
+            Orbituary My Take es mi versión inspirada en el tema y la estética de Sonic Legacy,
+            el mod oficial de Sonic.exe que reimagina VS Sonic.EXE con mejores sprites, música
+            pulida y una historia más oscura alrededor de X y su universo.
+          </p>
+
+          <div class="mod-image-wrapper" aria-label="Orbituary My Take">
+            <img src="orbituary-my-take.png" alt="Orbituary My Take" />
+          </div>
+
+          <div class="mod-buttons">
+            <a
+              class="btn btn-download"
+              href="https://mega.nz/file/07YCBDTZ#PEFccRHVqRw6Uu003hoGtligor8lF50esrPG-awqN88"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">⬇️</span>
+              <span>Descargar Orbituary My Take</span>
+            </a>
+
+            <a
+              class="btn btn-view"
+              href="https://youtu.be/HqQ6uShpcjE"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">▶️</span>
+              <span>Ver mod original</span>
+            </a>
+          </div>
+        </article>
+                <!-- MOD 2HOT BF MIX ANDROID PORT -->
+        <article class="mod-card">
+          <span class="mod-tag">Nuevo mod</span>
+          <h3 class="mod-title">2HOT BF MIX ANDROID PORT</h3>
+          <p class="mod-desc">
+            2HOT BF MIX ANDROID PORT es un port para móvil del tema 2HOT BF Mix,
+            donde Boyfriend se enfrenta en una batalla de rap intensa y llena de
+            letras contra otra versión de sí mismo, con una pista rápida y muy
+            bailable inspirada en el mod original de RixFX, el modo original se puede ver en el botón para poder observar el mod yo lo que hize fue cambiar la compatibilidad de los shaders y scripts de Pc a Android
+          </p>
+
+          <div class="mod-image-wrapper" aria-label="2HOT BF MIX ANDROID PORT">
+            <img src="2hot-bf-mix-android-port.png" alt="2HOT BF MIX ANDROID PORT" />
+          </div>
+
+          <div class="mod-buttons">
+            <a
+              class="btn btn-download"
+              href="https://mega.nz/file/Mv4E2LTR#ul_4uN6j9N8JghamDPUepQGX0opgy9G4MnxNubVUPXU"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">⬇️</span>
+              <span>Descargar 2HOT BF MIX ANDROID PORT</span>
+            </a>
+
+            <a
+              class="btn btn-view"
+              href="https://youtu.be/yFEaqdELWoM"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">▶️</span>
+              <span>Ver mod</span>
+            </a>
+          </div>
+        </article>
+                <article class="mod-card">
+          <span class="mod-tag">OBLIGATORIO INSTALAR</span>
+          <h3 class="mod-title">PAQUETE DE SCRIPTS Y SHADERS</h3>
+          <p class="mod-desc">
+           Bro, instala este zip es obligatorio para que funcionen los mods perfectamente estos son los pasos que tienes que seguir 
+           instala el ZIP descomprimelo y te debe de dejar dos carpetas una que se llama script y otra que se llama shaders, esos dos archivos tienes que moverlos a la carpeta 
+           .Psych Engine/mods/dentro de la carpeta mods no entres a ningún mod solo dentro de la carpeta mods pega esas dos carpetas e intenta ejecutar los mods desde el 
+           Psych Engine que se encuentra en el botón de más abajo de la página el que dice de más juegos y aplicaciones
+          </p>
+
+          <div class="mod-image-wrapper" aria-label="PAQUETE DE SHADERS Y MODS">
+            <img src="pipipi.png" alt="PAQUETE DE SHADERS Y MODS-OBLIGADO INSTALAR" />
+          </div>
+
+          <div class="mod-buttons">
+            <a
+              class="btn btn-download"
+              href="https://mega.nz/file/Jm4mCRyD#L2WxGuljBexz-Je8fOEtbAHBTomIaeQYb-0adQnys0s"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">⬇️</span>
+              <span>Descargar El Paquete De Shaders Y Scripts</span>
+            </a>
+
+            <a
+              class="btn btn-view"
+              href="https://youtu.be/dZiZPe2Y15I"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon">▶️</span>
+              <span>Perdón Por No Subirlo Antes😿</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- INDICACIONES -->
+    <section id="indicaciones">
+      <h2>Cómo instalar los mods (Psych Engine 7.3 – Android)</h2>
+      <p class="subtitle">
+        Sigue estos pasos al pie de la letra para que los mods funcionen sin problemas en tu
+        dispositivo Android.
+      </p>
+
+      <ol class="steps">
+        <li class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-text">
+            Debes tener instalado <strong>Psych Engine 7.3 para Android</strong>. Si aún no lo tienes,
+            descárgalo aplastando el botón que está abajo de estas indicaciones para poder descargarlo.
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-text">
+            Descarga cualquiera de los mods desde los botones de descarga de arriba.
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-text">
+            Descomprime el archivo <strong>.zip</strong> que descargaste usando tu gestor de archivos
+            favorito.
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-number">4</div>
+          <div class="step-text">
+            La carpeta que se descomprime debes moverla dentro de la ruta
+            <code>.PsychEngine/mods/</code> de tu dispositivo.
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-number">5</div>
+          <div class="step-text">
+            Dentro de la carpeta <code>mods</code> pega la carpeta del mod (por ejemplo, <code>MyFinale</code> o
+            <code>PibbyApocalypse</code>).
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-number">6</div>
+          <div class="step-text">
+            Abre el juego, entra a la sección de mods y selecciona el mod que pegaste.
+            ¡Listo bro, puedes jugar los mods sin ningún problema!
+          </div>
+        </li>
+      </ol>
+    </section>
+            <div style="margin: 1.5rem 0; text-align: center; display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;">
+      <!-- Botón original -->
+      <a
+        href="extras.html"
+        class="btn btn-view"
+        style="max-width: 260px; display: inline-flex;"
+      >
+        <span class="icon">🎮</span>
+        <span>Más juegos, apps, etc.</span>
+      </a>
+
+<!-- Nuevo botón especial COME ALONE WITH ME RETAKE -->
+<a
+  href="come-alone-with-me-retake.html"
+  class="btn btn-view petal-button mod-link"
+  style="max-width: 260px; display: inline-flex; position: relative; overflow: hidden;"
+>
+  <span class="icon">🌸</span>
+  <span>COME ALONE WITH ME RETAKE</span>
+</a>
+
+    <!-- AYUDA Y SOPORTE -->
+    <section id="ayuda">
+      <h2>Ayuda y soporte</h2>
+      <div class="support-box">
+        <p>
+          Si necesitas ayuda con la instalación o encontraste algún bug raro en los mods,
+          puedes escribirme directamente por mensaje.
+        </p>
+        <p class="support-phone">📱 WhatsApp / contacto: <strong>0968997271</strong></p>
+        <p class="support-note">
+          Cuando me escribas, porfa indica qué mod estabas usando, qué problema te salió y
+          en qué dispositivo estás jugando (marca y modelo). Así puedo ayudarte más rápido.
+        </p>
+      </div>
+    </section>
+
+    <!-- OPINIONES -->
+    <section id="opiniones">
+      <h2>Opiniones de la comunidad</h2>
+      <p class="subtitle">
+        Deja tu opinión sobre los mods, qué tal te fue con la dificultad, la música y todo el
+        vibe. Tus comentarios ayudan a mejorar y a montar nuevos proyectos.
+      </p>
+
+      <div class="opinions-layout">
+        <!-- FORMULARIO -->
+        <div class="opinions-form" aria-label="Formulario para enviar opiniones">
+          <form id="opinionForm">
+            <div>
+              <label for="nombre">Nombre o nickname</label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="BFPlayer_777"
+                required
+              />
+            </div>
+
+            <div>
+              <label for="mod">Mod</label>
+              <select id="mod" name="mod" required>
+              <option value="">Selecciona un mod</option>
+              <option value="My Finale">My Finale</option>
+              <option value="Come Alone With Me – Pibby Apocalypse">
+              Come Alone With Me – Pibby Apocalypse
+              </option>
+              <option value="Suffering Siblings">Suffering Siblings</option>
+              <option value="Befallen Brothers / My Take">Befallen Brothers / My Take</option>
+              <option value="Varios">Varios / Más de uno</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="opinion">Tu opinión</label>
+              <textarea
+                id="opinion"
+                name="opinion"
+                placeholder="Cuenta qué te pareció el mod, si te gustó la música, la dificultad, etc."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn-opinion">
+              Enviar opinión
+            </button>
+          </form>
+        </div>
+
+        <!-- LISTA DE OPINIONES -->
+        <div>
+          <h3 style="margin-bottom: 0.4rem;">Últimas opiniones</h3>
+          <div id="opinionsList" class="opinions-list" aria-live="polite">
+            <!-- Opiniones se insertan aquí vía JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        BeatMods JA – Mods de Friday Night Funkin' creados por
+        <span class="footer-highlight">Juan.A</span>
+      </div>
+      <div>
+        Gracias por jugar, compartir y apoyar mis proyectos. ¡Se vienen más mods pronto!
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Manejo simple de opiniones (solo en la sesión actual)
+    const opinionForm = document.getElementById("opinionForm");
+    const opinionsList = document.getElementById("opinionsList");
+
+    function crearOpinionCard(nombre, mod, texto, fechaStr) {
+      const card = document.createElement("article");
+      card.className = "opinion-card";
+
+      const header = document.createElement("div");
+      header.className = "opinion-header";
+
+      const nameEl = document.createElement("div");
+      nameEl.className = "opinion-name";
+      nameEl.textContent = nombre;
+
+      const modEl = document.createElement("div");
+      modEl.className = "opinion-mod";
+      modEl.textContent = mod;
+
+      const dateEl = document.createElement("div");
+      dateEl.className = "opinion-date";
+      dateEl.textContent = fechaStr;
+
+      header.appendChild(nameEl);
+      header.appendChild(modEl);
+      header.appendChild(dateEl);
+
+      const textEl = document.createElement("p");
+      textEl.className = "opinion-text";
+      textEl.textContent = texto;
+
+      card.appendChild(header);
+      card.appendChild(textEl);
+
+      return card;
+    }
+
+    function fechaActualBonita() {
+      const ahora = new Date();
+      const opcionesFecha = {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      };
+      return ahora.toLocaleString("es-EC", opcionesFecha);
+    }
+
+    opinionForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const nombre = opinionForm.nombre.value.trim();
+      const mod = opinionForm.mod.value;
+      const opinionTexto = opinionForm.opinion.value.trim();
+
+      if (!nombre || !mod || !opinionTexto) {
+        alert("Por favor completa todos los campos antes de enviar.");
+        return;
+      }
+
+      const fechaStr = fechaActualBonita();
+      const nuevaCard = crearOpinionCard(nombre, mod, opinionTexto, fechaStr);
+
+      // Poner la opinión más nueva arriba
+      opinionsList.prepend(nuevaCard);
+
+      opinionForm.reset();
+    });
+
+    // Opiniones de ejemplo iniciales
+    const ejemplos = [
+      {
+        nombre: "FNF_Lover",
+        mod: "My Finale",
+        opinion:
+          "El final está brutal, la última canción me reventó la cabeza. La dificultad está justa, ni imposible ni fácil.",
+      },
+      {
+        nombre: "GlitchPibby",
+        mod: "Come Alone With Me – Pibby Apocalypse",
+        opinion:
+          "La ambientación glitch está muy bien lograda, me encantó el vibe oscuro. Espero más canciones así.",
+      },
+    ];
+
+    ejemplos.forEach((ej) => {
+      const fecha = fechaActualBonita();
+      const card = crearOpinionCard(ej.nombre, ej.mod, ej.opinion, fecha);
+      opinionsList.appendChild(card);
+    });
+  </script>
+</body>
+</html>

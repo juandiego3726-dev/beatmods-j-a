@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeatMods JA - Mas juegos, apps, etc.</title>
+  <link rel="icon" href="favicon.ico" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1a0535 0, #050509 55%, #020109 100%);
+      color: #f9fafb;
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+    }
+
+    .logo-text {
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #a855f7;
+      margin-bottom: 0.25rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: #d1d5db;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #f973d1, #a855f7);
+      color: #190018;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      box-shadow: 0 12px 30px rgba(168, 85, 247, 0.4);
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      margin: 2rem 0 0.75rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, #2b0b5b 0, #090814 55%, #05040e 100%);
+      border-radius: 18px;
+      padding: 1rem;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
+    }
+
+    .card-tag {
+      display: inline-flex;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: rgba(56, 189, 248, 0.08);
+      color: #7dd3fc;
+      margin-bottom: 0.45rem;
+    }
+
+    .card-title {
+      font-size: 1.02rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-desc {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      margin-bottom: 0.7rem;
+    }
+
+    .card-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .btn-small {
+      flex: 1 1 140px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-download {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #022c22;
+      box-shadow: 0 14px 30px rgba(34, 197, 94, 0.45);
+    }
+
+    .btn-view {
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      color: #021523;
+      box-shadow: 0 14px 30px rgba(56, 189, 248, 0.45);
+    }
+
+    .card-image {
+      width: 100%;
+      height: auto;
+      max-height: 260px;
+      object-fit: contain;
+      border-radius: 16px;
+      display: block;
+      margin: 0 auto 0.75rem;
+      background: #000;
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      font-size: 0.75rem;
+      color: #9ca3af;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .page {
+        padding: 2.25rem 1.5rem 3.5rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo-text">BeatMods JA · Extras</div>
+      <h1>Mas Juegos, Apps y Proyectos</h1>
+      <p class="subtitle">
+        Aqui voy a ir subiendo otros juegos, aplicaciones y cositas que no son solo mods de Friday Night Funkin.
+      </p>
+      <a href="index.html" class="btn-back"><span>&larr;</span> Volver a los mods FNF</a>
+    </header>
+
+    <section>
+      <h2 class="section-title">Descargas importantes</h2>
+      <p class="subtitle" style="margin-bottom: 0.9rem;">
+        Aqui encontraras engines, juegos, apps y otras herramientas que complementan los mods de Friday Night Funkin y otros proyectos.
+      </p>
+
+      <div class="cards-grid">
+        <!-- Psych Engine -->
+        <article class="card">
+          <img src="psych-engine-android.png" alt="Psych Engine 0.7.3 para Android" class="card-image">
+          <span class="card-tag">Engine FNF</span>
+          <h3 class="card-title">Psych Engine 0.7.3 para Android</h3>
+          <p class="card-desc">
+            Version 0.7.3 de Psych Engine adaptada para Android. Con este engine puedes cargar y
+            jugar la mayoria de mods de Friday Night Funkin hechos para Psych, usando los pasos
+            de instalacion que explico en la pagina principal.
+          </p>
+          <div class="card-buttons">
+            <a
+              href="https://www.mediafire.com/file/89jx162nds0bpss/base.apk/file"
+              class="btn-small btn-download"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Descargar</span><span>Psych Engine 0.7.3</span>
+            </a>
+            <a
+              href="https://youtu.be/CtB0S1yQf4Q"
+              class="btn-small btn-view"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Ver</span><span>como es el engine</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Perplexity Premium -->
+        <article class="card">
+          <img src="perplexity-premium-app.png" alt="Perplexity Premium" class="card-image">
+          <span class="card-tag">App</span>
+          <h3 class="card-title">Perplexity Premium</h3>
+          <p class="card-desc">
+            Version modificada de Perplexity para Android. Te permite hacer preguntas, buscar informacion y
+            obtener respuestas rapidas para estudiar, crear proyectos y resolver dudas sobre casi cualquier tema.
+          </p>
+          <div class="card-buttons">
+            <a
+              href="https://www.mediafire.com/file/4ykwf1mwrq9f1yk/perplexity.apk/file"
+              class="btn-small btn-download"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Descargar</span><span>Perplexity Premium</span>
+            </a>
+            <a
+              href="https://youtu.be/nPFHLq_cmPk"
+              class="btn-small btn-view"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Ver</span><span>como funciona la app</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Xuper -->
+        <article class="card">
+          <img src="xuper.png" alt="Xuper Premium" class="card-image">
+          <span class="card-tag">App</span>
+          <h3 class="card-title">XUPER PREMIUM SIN VIRUS</h3>
+          <p class="card-desc">
+            Xuper TV en su version premium sin ningun tipo de virus, codigo limpiado por su servidor.
+            Esta app sirve para poder ver cualquier serie, pelicula o canal existente, disfrutenlo.
+          </p>
+          <div class="card-buttons">
+            <a
+              href="https://www.mediafire.com/file/krxiz0omvn5bsjh/xup3r.apk/file"
+              class="btn-small btn-download"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Descargar</span><span>Xup3r TV</span>
+            </a>
+            <a
+              href="https://youtu.be/x0jiJbi0aaE"
+              class="btn-small btn-view"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Info</span><span>No se puede mostrar por pirateria (pero igual aplasta el boton bro)</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- FNAF Remake -->
+        <article class="card">
+          <img src="fnaf-remake-android.png" alt="FNAF Remake - Android Port" class="card-image">
+          <span class="card-tag">Juego</span>
+          <h3 class="card-title">FNAF REMAKE - ANDROID PORT</h3>
+          <p class="card-desc">
+            Port para Android del remake de Five Nights at Freddy's 1. Incluye mejoras visuales,
+            nuevos efectos y controles adaptados para jugar comodamente en dispositivos moviles.
+          </p>
+          <div class="card-buttons">
+            <a
+              href="https://www.mediafire.com/file/9fesbystvuethkp/FNAF+1+REMAKE.apk/file"
+              class="btn-small btn-download"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Descargar</span><span>FNAF Remake</span>
+            </a>
+            <a
+              href="https://youtu.be/VS1o6996i-o"
+              class="btn-small btn-view"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Ver</span><span>gameplay del juego</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Minecraft -->
+        <article class="card">
+          <img src="minecraft-premium.png" alt="Minecraft Premium" class="card-image">
+          <span class="card-tag">Juego</span>
+          <h3 class="card-title">Minecraft Premium</h3>
+          <p class="card-desc">
+            Minecraft Premium es la version de pago de Minecraft que te da acceso completo al juego original,
+            con todas sus funciones, mundos y modos disponibles.
+          </p>
+          <div class="card-buttons">
+            <a
+              href="https://mega.nz/file/FvJ0GBKQ#EY_dKdRHc8Kb6zhY-HLtonGkdRH2dG_t0F0nTEmz3cI"
+              class="btn-small btn-download"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Descargar</span><span>Minecraft Premium</span>
+            </a>
+            <a
+              href="https://youtu.be/rLo-4csv288"
+              class="btn-small btn-view"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Ver</span><span>Aplasta el boton bro</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Spotify -->
+        <article class="card">
+          <img src="spotify-premium.png" alt="Spotify Premium" class="card-image">
+          <span class="card-tag">App</span>
+          <h3 class="card-title">Spotify Premium</h3>
+          <p class="card-desc">
+            Spotify Premium es la version de pago de Spotify que te permite escuchar musica sin anuncios,
+            con mejor calidad de audio y opcion de descargar canciones para oirlas sin conexion.
+          </p>
+          <div class="card-buttons">
+            <a
+              href="https://mega.nz/file/k3oDCS5b#0082Dp0F4wH5sWxSgdSZpudC1kmz8TuIhP6uzC-Uzgc"
+              class="btn-small btn-download"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Descargar</span><span>Spotify Premium</span>
+            </a>
+            <a
+              href="https://youtu.be/bdh6Ky5oHD0"
+              class="btn-small btn-view"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Ver</span><span>Ya sabes para que sirve Spotify, pero igual presiona este boton</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- YouTube Premium -->
+        <article class="card">
+          <img src="youtube-premium.png" alt="YouTube Premium" class="card-image">
+          <span class="card-tag">App</span>
+          <h3 class="card-title">YouTube Premium</h3>
+          <p class="card-desc">
+            YouTube Premium es la version de pago de YouTube que quita todos los anuncios, permite descargar videos
+            para verlos sin conexion y reproducirlos en segundo plano tanto en YouTube como en YouTube Music.
+          </p>
+          <div class="card-buttons">
+            <a
+              href="https://mega.nz/file/pmA23IiB#sLrBlR-ghlUagVE2EUvmzpojneRNw3TRm-dnrPCB7l4"
+              class="btn-small btn-download"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Descargar</span><span>YouTube Premium</span>
+            </a>
+            <a
+              href="https://youtu.be/5Uq1vm0PdRo"
+              class="btn-small btn-view"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Ver</span><span>Funcionamiento de la app</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- ChatGPT Premium -->
+        <article class="card">
+          <img src="chat-gpt.png" alt="ChatGPT Premium" class="card-image">
+          <span class="card-tag">App</span>
+          <h3 class="card-title">ChatGPT Premium</h3>
+          <p class="card-desc">
+            ChatGPT Plus (la version premium) es la suscripcion de pago de ChatGPT que ofrece acceso mas estable
+            incluso en horas pico, respuestas mas rapidas y acceso prioritario a modelos y funciones nuevas o
+            avanzadas, a cambio de una cuota mensual fija.
+          </p>
+          <div class="card-buttons">
+            <a
+              href="https://mega.nz/file/IuQXQZoA#aiPuZZKXURpzQXA82dMDsfM35xox-EwAgdcGYXFihWc"
+              class="btn-small btn-download"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Descargar</span><span>ChatGPT Premium</span>
+            </a>
+            <a
+              href="https://t.me/gocmodcom/172463"
+              class="btn-small btn-view"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Ver</span><span>Como iniciar sesion en la app</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Geometry Dash -->
+        <article class="card">
+          <img src="geometry-dash.png" alt="Geometry Dash Mod Todo Desbloqueado" class="card-image">
+          <span class="card-tag">Juego</span>
+          <h3 class="card-title">Geometry Dash Todo Infinito</h3>
+          <p class="card-desc">
+            Geometry Dash Mod Todo Desbloqueado suele referirse a una version modificada del juego donde tienes
+            todos los niveles, iconos y elementos cosmeticos desbloqueados desde el inicio, sin necesidad de progresar
+            ni completar los desafios originales del juego.
+          </p>
+          <div class="card-buttons">
+            <a
+              href="https://mega.nz/file/wuYAFCQB#5-7i2G3MTH7GOVNOmlhOXIj1JV-HW4W-AT-PC4n3uFs"
+              class="btn-small btn-download"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Descargar</span><span>Geometry Dash Mod Todo Desbloqueado</span>
+            </a>
+            <a
+              href="https://youtu.be/pYpKPeMf1ZQ"
+              class="btn-small btn-view"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Ver</span><span>Gameplay</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      BeatMods JA - Seccion de extras · Pagina en construccion
+    </footer>
+  </div>
+</body>
+</html>
