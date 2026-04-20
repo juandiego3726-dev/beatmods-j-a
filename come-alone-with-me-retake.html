@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>COME ALONE WITH ME RETAKE | Beatmods JA</title>
 
-  <!-- Si ya tienes tu propio CSS (style.css, main.css, etc.), deja aquí el link -->
+  <!-- CSS principal del sitio: cambia "style.css" si tu archivo se llama distinto -->
   " />
 
   <style>
@@ -216,6 +216,7 @@
     // Animación de pétalos en canvas
     (function () {
       const canvas = document.getElementById('petals-canvas');
+      if (!canvas) return;
       const ctx = canvas.getContext('2d');
 
       let width = window.innerWidth;
